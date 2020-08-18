@@ -1,11 +1,16 @@
 // Create express app, always specify port
 const express = require('express');
-const PORT = 4000 || process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 // Built in Node package to create server
 const http = require('http');
 // Init server using the express app
-const server = http.createServer(express);
+const app = express();
+const server = http.createServer(app);
+
+// Set Static Folder
+app.use(express.static(__dirname));
+
 
 // Bring in and init websocket server
 const WebSocket = require('ws');
