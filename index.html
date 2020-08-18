@@ -1,59 +1,64 @@
-<h1>Simple Socket Message Exchange</h1>
-    <pre id="messages" style="height: 300px; overflow: scroll;"></pre>
-    <input 
-        id="message-input" 
-        type="text" 
-        placeholder="Say something..." 
-        style="display:block; width: 50%; margin-bottom: 10px; padding: 15px;" 
-    />
-    <button id="send-button" title="Send Message!" style="margin-left: 5%; width: 40%; height: 30px;">Send</button>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="public/style.css" />
+        <title>simplesocket</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Simple Socket</h1>
+                <pre id="messages"></pre>
+                <input 
+                    id="message-input" 
+                    type="text" 
+                    placeholder="Say something..." 
+                />
+                <button id="send-button" title="Send Message!">Send</button>
+        </div>
+            <script>
+                // On pageload run this function
+                (() => {
+                    const sendButton = document.querySelector('#send-button');
+                    const messages = document.querySelector('#messages');
+                    const messageInput = document.querySelector('#message-input');
 
-    <script>
-        // On pageload run this function
-        (() => {
-            const sendButton = document.querySelector('#send-button');
-            const messages = document.querySelector('#messages');
-            const messageInput = document.querySelector('#message-input');
+                    let ws;
 
-            let ws;
+                    const showMessage = (message) => {
+                        messages.textContent += `\n\n${message}`;
+                        messages.scrollTop = messages.scrollHeight;
+                        messageInput.value = '';
+                    }
 
-            const showMessage = (message) => {
-                messages.textContent += `\n\n${message}`;
-                messages.scrollTop = messages.scrollHeight;
-                messageInput.value = '';
-            }
+                    const init = () => {
+                        if (ws) {
+                            ws.onerror = ws.onopen = ws.onclose = null;
+                            ws.close();
+                        }
+                        // Sends a message to the server
+                        ws = new WebSocket('ws://localhost:4000');
+                        ws.onopen = () => {
+                            console.log('connection opened!');
+                        }
+                        ws.onmessage = ({ data }) => showMessage(data);
+                        ws.onclose = () => {
+                            ws = null;
+                        }
+                    }
 
-            const init = () => {
-                if (ws) {
-                    ws.onerror = ws.onopen = ws.onclose = null;
-                    ws.close();
-                }
-                // Sends a message to the server
-                ws = new WebSocket('ws://localhost:4000');
-                ws.onopen = () => {
-                    console.log('connection opened!');
-                }
-                ws.onmessage = ({ data }) => showMessage(data);
-                ws.onclose = () => {
-                    ws = null;
-                }
-            }
-
-            sendButton.onclick = () => {
-                if (!ws) {
-                    showMessage("No Connection 😱");
-                    return;
-                }
-                ws.send(messageInput.value);
-                showMessage(messageInput.value);
-            }
-
-            init();
-        })();
-
-
-
-
-
-
-    </script>
+                    sendButton.onclick = () => {
+                        if (!ws) {
+                            showMessage("No Connection 😱");
+                            return;
+                        }
+                        ws.send(messageInput.value);
+                        showMessage(messageInput.value);
+                    }
+                    // Invoke socket connection
+                    init();
+                })();
+            </script>
+        </body>
+    </html>
