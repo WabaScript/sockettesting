@@ -4,15 +4,14 @@ in the simplesocket directory:
   <li>yarn start</li>
   <li>open index.html</li>
  </ul>
-
-<div align="center">
-  <table>
+ 
+  <table >
     <tbody>
       <tr>
-          <th align="center" height="10"><h3>Preview</h3></th>
+          <th align="left" height="8"><h5>Preview</h5></th>
       </tr>
       <tr>
-        <td align="center">
+        <td align="left">
           <img src="https://user-images.githubusercontent.com/59180399/90548172-91f0b900-e15a-11ea-8cb0-263480463399.png" title="test" alt="test" width="40%" height="25%">
         </td>
       </tr>
