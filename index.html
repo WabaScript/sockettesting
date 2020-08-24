@@ -15,7 +15,10 @@
                     type="text" 
                     placeholder="Say something..." 
                 />
-                <button id="send-button" title="Send Message!">Send</button>
+                <div id="btn-container">
+                    <button id="send-button" title="Send Message!">Send</button>
+                    <button id="dark-mode" title="Enable Dark Mode!">Dark Mode</button>
+                </div>
         </div>
             <script>
                 // On pageload run this function
@@ -23,7 +26,9 @@
                     const sendButton = document.querySelector('#send-button');
                     const messages = document.querySelector('#messages');
                     const messageInput = document.querySelector('#message-input');
+                    const darkButton = document.querySelector('#dark-mode');
 
+                    let darkMode = false;
                     let ws;
 
                     const showMessage = (message) => {
@@ -55,6 +60,10 @@
                         }
                         ws.send(messageInput.value);
                         showMessage(messageInput.value);
+                    }
+
+                    darkButton.onclick = () => {
+                        darkMode = !darkMode
                     }
                     // Invoke socket connection
                     init();
