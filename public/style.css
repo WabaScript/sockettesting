@@ -11,6 +11,13 @@ h1 {
     font-size: 24px;
 }
 
+.body-dark-active {
+    font-family: 'Poppins', sans-serif;
+    margin: 20px;
+    margin-left: 30%;
+    background-color: #191905;
+}
+
 #container {
     display: flex;
     align-items: center;
@@ -22,10 +29,29 @@ h1 {
     box-shadow: 8px 12px 15px 0px rgba(0,0,0,0.3);
 }
 
+.container-dark-active {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 70%;
+    background-color: #05052d !important;
+    border-radius: 15px;
+    box-shadow: 8px 12px 15px 0px rgba(255,255,255,0.3) !important;
+    color: white !important;
+}
+
 #messages {
     height: 250px; 
     overflow: scroll;
     width: 50%;
+}
+
+.messages-dark-active {
+    height: 250px; 
+    overflow: scroll;
+    width: 50%;
+    background-color: #05052d !important;
 }
 
 /* Hover flow */
@@ -67,7 +93,7 @@ h1 {
     margin: 10px;
 }
 
-#dark-mode {
+#dark-mode-button {
     background-color: rgb(208, 208, 227);
     width: 80px; 
     height: 25px;
@@ -76,11 +102,29 @@ h1 {
     align-self: center;
 }
 
-#dark-mode:hover {
+#dark-mode-button:hover {
     background-color: lavender;
     transform: scale(1.1, 1.1);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-mode-button-active {
+    background-color:  #2f2f1c !important;
+    width: 80px; 
+    height: 25px;
+    box-shadow: 0 1px 2px rgba(255,255,255,0.15) !important;
+    transition: all 0.3s ease-in-out;
+    align-self: center;
+    color: white !important;
+}
+
+.dark-mode-button-active:hover {
+    background-color:  #191905 !important;
+    transform: scale(1.1, 1.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.3) !important;
+    color: white !important;
 }
 
 #send-button {
@@ -98,4 +142,23 @@ h1 {
     transform: scale(1.1, 1.1);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.send-button-dark-active {
+    background-color: #2f2f1c !important;
+    width: 100px; 
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+    box-shadow: 1px 1px 2px rgba(255,255,255,0.15) !important;
+    transition: all 0.3s ease-in-out;
+    color: white !important;
+}
+
+.send-button-dark-active:hover {
+    background-color: #191905 !important;
+    transform: scale(1.1, 1.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.3) !important;
+    color: white !important;
 }
