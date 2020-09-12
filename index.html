@@ -32,9 +32,18 @@
 
                 let darkMode = false;
                 let ws;
+                let msg = {
+                    id: null,
+                    content: null
+                };
 
-                const showMessage = (message) => {
-                    messages.textContent += `\n\n${message}`;
+                const showMessage = (msg) => {
+                    // Display no connection string or actual msg data
+                    if (typeof msg !== "object") {
+                        messages.textContent += `\n\n${msg}`
+                    } else {
+                        messages.textContent += `\n\n${msg.id}: ${msg.content}`;
+                    }
                     messages.scrollTop = messages.scrollHeight;
                     messageInput.value = '';
                 }
@@ -54,36 +63,46 @@
                     ws = new WebSocket('ws://localhost:4000');
                     ws.onopen = () => {
                         console.log('connection opened!');
+                        // Assign a user id
+                        msg.id = "user" + Math.floor(Math.random() * 100).toString();  
+                        console.log(`id: ${msg.id}`)
                     }
                     ws.onmessage = ({ data }) => {
-                        showMessage(data);
+                        let received = JSON.parse(data)
+                        showMessage(received);
                         messageSound();
                     }
                     ws.onclose = () => {
                         ws = null;
                     }
-                }
+                };
 
-
+                // Send by hitting "Enter"
                 messageInput.addEventListener("keyup", e => {
                     if (e.key !== "Enter") return;   
                     if (!ws) {
                         showMessage("No Connection 😱");
                         return;
                     }
-                    ws.send(messageInput.value);
-                    showMessage(messageInput.value);
+                    msg.content = messageInput.value
+                    ws.send(JSON.stringify(msg));
+                    showMessage(msg);
                 });
 
+                // Send by button click
                 sendButton.onclick = () => {
                     if (!ws) {
                         showMessage("No Connection 😱");
                         return;
                     }
-                    ws.send(messageInput.value);
-                    showMessage(messageInput.value);
+                    msg.content = messageInput.value
+                    ws.send(JSON.stringify(msg));
+                    showMessage(msg);
+                    // ws.send(messageInput.value);
+                    // showMessage(messageInput.value);
                 }
 
+                // Toggle dark mode on or off and adjust CSS
                 darkButton.onclick = () => {
                     darkMode = !darkMode
                     if (darkMode) {

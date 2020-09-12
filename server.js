@@ -19,6 +19,7 @@ const wss = new WebSocket.Server({ server });
 // What happens when a connection to the wss occurs, or a message is received
 // Check for connection
 wss.on('connection', function connection(ws) {
+    
     // Check for message
     ws.on('message', function incoming(data) {
         // Relay message to all connections
