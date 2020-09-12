@@ -10,12 +10,14 @@
         let darkMode = false;
         let ws;
 
+        // Adjust HTML to display submitted data
         const showMessage = (message) => {
             messages.textContent += `\n\n${message}`;
             messages.scrollTop = messages.scrollHeight;
             messageInput.value = '';
         }
 
+        // Open a new WS connection
         const init = () => {
             if (ws) {
                 ws.onerror = ws.onopen = ws.onclose = null;
@@ -32,6 +34,18 @@
             }
         }
 
+        // Function to allow "Enter" key to submit input
+        messageInput.addEventListener("keyup", e => {
+            if (e.key !== "Enter") return;   
+            if (!ws) {
+                showMessage("No Connection 😱");
+                return;
+            }
+            ws.send(messageInput.value);
+            showMessage(messageInput.value);
+        });
+
+        // Send the input text
         sendButton.onclick = () => {
             if (!ws) {
                 showMessage("No Connection 😱");
@@ -41,6 +55,7 @@
             showMessage(messageInput.value);
         }
 
+        // Toggle on and off dark boolean and adjust CSS
         darkButton.onclick = () => {
             darkMode = !darkMode
             if (darkMode) {
