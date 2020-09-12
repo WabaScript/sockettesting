@@ -17,3 +17,10 @@ in the simplesocket directory:
       </tr>
     </tbody>
   </table>
+
+  Latest
+  <ul>
+    <li>Dark Mode 🌚</li>
+    <li>Usernames given upon connection🙋‍♀️</li>
+  </ul>
+
