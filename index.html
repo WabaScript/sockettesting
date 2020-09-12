@@ -12,7 +12,7 @@
                 <pre id="messages"></pre>
                 <input 
                     id="message-input" 
-                    type="text" 
+                    type="text"
                     placeholder="Say something..." 
                 />
                 <div id="btn-container">
@@ -54,6 +54,16 @@
                         ws = null;
                     }
                 }
+
+                messageInput.addEventListener("keyup", e => {
+                    if (e.key !== "Enter") return;   
+                    if (!ws) {
+                        showMessage("No Connection 😱");
+                        return;
+                    }
+                    ws.send(messageInput.value);
+                    showMessage(messageInput.value);
+                });
 
                 sendButton.onclick = () => {
                     if (!ws) {
