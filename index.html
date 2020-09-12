@@ -39,6 +39,12 @@
                     messageInput.value = '';
                 }
 
+                const messageSound = () => {
+                    console.log("sound playing")
+                    const audio = new Audio('public/swiftly_noti.mp3');
+                    audio.play();
+                }
+
                 const init = () => {
                     if (ws) {
                         ws.onerror = ws.onopen = ws.onclose = null;
@@ -49,11 +55,15 @@
                     ws.onopen = () => {
                         console.log('connection opened!');
                     }
-                    ws.onmessage = ({ data }) => showMessage(data);
+                    ws.onmessage = ({ data }) => {
+                        showMessage(data);
+                        messageSound();
+                    }
                     ws.onclose = () => {
                         ws = null;
                     }
                 }
+
 
                 messageInput.addEventListener("keyup", e => {
                     if (e.key !== "Enter") return;   
