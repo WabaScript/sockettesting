@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="container">
-            <h1>Simple Socket</h1>
+            <h1 id="title-hover">Simple Socket</h1>
                 <pre id="messages"></pre>
                 <input 
                     id="message-input" 
@@ -29,6 +29,7 @@
                 const messages = document.querySelector('#messages');
                 const messageInput = document.querySelector('#message-input');
                 const darkButton = document.querySelector('#dark-mode-button');
+                const titleHover = document.querySelector('#title-hover');
 
                 let darkMode = false;
                 let ws;
@@ -65,7 +66,7 @@
                         console.log('connection opened!');
                         // Assign a user id
                         msg.id = "user" + Math.floor(Math.random() * 100).toString();  
-                        console.log(`id: ${msg.id}`)
+                        console.log(`id: ${msg.id}`);
                     }
                     ws.onmessage = ({ data }) => {
                         let received = JSON.parse(data)
@@ -101,6 +102,18 @@
                     // ws.send(messageInput.value);
                     // showMessage(messageInput.value);
                 }
+
+                // Show username on Title hover
+                titleHover.onmouseenter = () => {
+                    if (msg.id) {
+                        // Mouseover change
+                        titleHover.innerHTML = msg.id;
+                        // Reset after a short delay
+                        setTimeout(() => {
+                            titleHover.innerHTML = "Simple Socket";
+                        }, 1000);
+                    };
+                };
 
                 // Toggle dark mode on or off and adjust CSS
                 darkButton.onclick = () => {

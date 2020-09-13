@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 20px;
-    margin-left: 30%;
+    margin-top: 20px;
+    margin-left: 25%;
     background-color: lavender;
 }
 
@@ -13,8 +13,8 @@ h1 {
 
 .body-dark-active {
     font-family: 'Poppins', sans-serif;
-    margin: 20px;
-    margin-left: 30%;
+    margin-top: 20px;
+    margin-left: 25%;
     background-color: #191905;
 }
 
@@ -23,10 +23,11 @@ h1 {
     align-items: center;
     flex-direction: column;
     height: 450px;
-    width: 70%;
+    width: 75%;
     background-color: lightgoldenrodyellow;
     border-radius: 15px;
     box-shadow: 8px 12px 15px 0px rgba(0,0,0,0.3);
+    min-width: 350px;
 }
 
 .container-dark-active {
@@ -34,11 +35,12 @@ h1 {
     align-items: center;
     flex-direction: column;
     height: 450px;
-    width: 70%;
+    width: 75%;
     background-color: #1a5229 !important;
     border-radius: 15px;
     box-shadow: 8px 12px 15px 0px rgba(255,255,255,0.3) !important;
     color: white !important;
+    min-width: 350px;
 }
 
 #messages {
