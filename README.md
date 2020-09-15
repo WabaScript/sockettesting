@@ -21,6 +21,7 @@ in the simplesocket directory:
   Latest
   <ul>
     <li>Dark Mode 🌚</li>
-    <li>Usernames given upon connection🙋‍♀️</li>
+    <li>Usernames given upon connection 🙋‍♀️</li>
+    <li>Sound notifications on receive 🔊</li>
   </ul>
 
