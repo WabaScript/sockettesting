@@ -24,4 +24,5 @@ in the simplesocket directory:
     <li>Usernames given upon connection 🙋‍♀️</li>
     <li>Sound notifications on receive 🔊</li>
   </ul>
+  Upcoming
 
