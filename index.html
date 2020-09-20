@@ -38,6 +38,7 @@
                     content: null
                 };
                 let HOST = location.origin.replace(/^http/, 'ws')
+                const audio = new Audio('public/swiftly_noti.mp3');
 
                 const showMessage = (msg) => {
                     // Display no connection string or actual msg data
@@ -52,7 +53,6 @@
 
                 const messageSound = () => {
                     console.log("sound playing")
-                    const audio = new Audio('public/swiftly_noti.mp3');
                     audio.play();
                 }
 

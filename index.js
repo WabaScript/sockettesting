@@ -1,4 +1,6 @@
-// 
+// ******** THIS FILE IS NOT UPDATE ********
+// ******** PLEASE REFER TO '/INDEX.HTML' ********
+
     // On pageload run this function
     (() => {
         const container = document.querySelector('#container');
