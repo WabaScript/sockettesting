@@ -210,7 +210,7 @@ h1 {
 @media (max-width: 575.98px) {
 
 	#container {
-
+        margin-left: -10%;
         min-width: 265px;
     }
 
