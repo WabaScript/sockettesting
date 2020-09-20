@@ -1,3 +1,6 @@
+# Live
+ <a href="https://simplesocket-us.herokuapp.com/">Connect Now!</a> 
+
 # Fork and clone
 in the simplesocket directory:
 <ul>
@@ -23,6 +26,7 @@ in the simplesocket directory:
     <li>Dark Mode 🌚</li>
     <li>Usernames given upon connection 🙋‍♀️</li>
     <li>Sound notifications on receive 🔊</li>
+  <li>Deployed ⚒</li>
   </ul>
   Upcoming
 
