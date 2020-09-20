@@ -37,6 +37,7 @@
                     id: null,
                     content: null
                 };
+                let HOST = location.origin.replace(/^http/, 'ws')
 
                 const showMessage = (msg) => {
                     // Display no connection string or actual msg data
@@ -61,7 +62,7 @@
                         ws.close();
                     }
                     // Sends a message to the server
-                    ws = new WebSocket('ws://192.168.0.45:4000');
+                    ws = new WebSocket(HOST);
                     ws.onopen = () => {
                         console.log('connection opened!');
                         // Assign a user id
