@@ -41,6 +41,7 @@
             if (e.key !== "Enter") return;   
             if (!ws) {
                 showMessage("No Connection 😱");
+                showMessage("Please Try Again...");
                 return;
             }
             ws.send(messageInput.value);
@@ -51,6 +52,7 @@
         sendButton.onclick = () => {
             if (!ws) {
                 showMessage("No Connection 😱");
+                showMessage("Please Try Again...");
                 return;
             }
             ws.send(messageInput.value);
