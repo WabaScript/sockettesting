@@ -84,6 +84,7 @@
                     if (e.key !== "Enter") return;   
                     if (!ws) {
                         showMessage("No Connection 😱");
+                        showMessage("Please Try Again...");
                         return;
                     }
                     msg.content = messageInput.value
@@ -96,6 +97,7 @@
                 sendButton.onclick = () => {
                     if (!ws) {
                         showMessage("No Connection 😱");
+                        showMessage("Please Try Again...");
                         return;
                     }
                     msg.content = messageInput.value
