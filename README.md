@@ -15,7 +15,7 @@ in the simplesocket directory:
       </tr>
       <tr>
         <td align="left">
-          <img src="https://user-images.githubusercontent.com/59180399/90548172-91f0b900-e15a-11ea-8cb0-263480463399.png" title="test" alt="test" width="40%" height="25%">
+          <img src="https://user-images.githubusercontent.com/59180399/90548172-91f0b900-e15a-11ea-8cb0-263480463399.png" title="test" alt="test" width="400px" height="250px">
         </td>
       </tr>
     </tbody>
