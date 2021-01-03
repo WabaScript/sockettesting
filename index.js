@@ -1,4 +1,4 @@
-// ******** THIS FILE IS NOT UPDATE ********
+// ******** THIS FILE IS NOT UP TO DATE ********
 // ******** PLEASE REFER TO '/INDEX.HTML' ********
 
     // On pageload run this function

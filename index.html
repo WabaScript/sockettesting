@@ -10,7 +10,8 @@
         <div id="container">
             <h1 id="title-hover">Simple Socket</h1>
                 <pre id="messages"></pre>
-                <input 
+                <input
+                    autofocus
                     id="message-input" 
                     type="text"
                     placeholder="Say something..." 
@@ -128,6 +129,7 @@
                         sendButton.classList.add('send-button-dark-active');
                         messages.classList.add('messages-dark-active');
                         darkButton.classList.add('dark-mode-button-active');
+                        darkButton.innerHTML = "Light Mode 🌞"
                     }
                     else {
                         document.body.classList.remove('body-dark-active');
@@ -135,6 +137,7 @@
                         sendButton.classList.remove('send-button-dark-active');
                         messages.classList.remove('messages-dark-active');
                         darkButton.classList.remove('dark-mode-button-active');
+                        darkButton.innerHTML = "Dark Mode 🌚"
                     }
                 }
                 // Invoke socket connection
